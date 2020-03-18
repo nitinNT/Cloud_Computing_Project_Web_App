@@ -18,17 +18,16 @@ app.listen(3000, function () {
 });
 
 
-
-
 app.get('/',function(req,res){
     res.sendFile(__dirname+'/index.html')
 })
 
 app.post('/save_details',async function(req,res){
-  axios.post('http://localhost:8080/api/',req.body).then((res) => {
+  axios.post('http://192.168.0.101:8080/api',req.body).then((res) => {
     console.log(res)
-  }, (error) => {
-    console.log(error);
+  }, (err) => {
+    console.log(err);
   });
   res.sendFile(__dirname+'/status.html')
 })
+
