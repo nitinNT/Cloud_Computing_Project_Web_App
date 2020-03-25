@@ -6,6 +6,8 @@ const assert = require('assert');
 const axios=require('axios')
 
 
+app.set('view engine', 'ejs');
+
 const url = 'mongodb+srv://nitin:slica@cluster0-uenlm.mongodb.net/test?retryWrites=true&w=majority';
 
 var bodyParser = require("body-parser");
@@ -19,15 +21,22 @@ app.listen(3000, function () {
 
 
 app.get('/',function(req,res){
-    res.sendFile(__dirname+'/index.html')
+    res.render('index');
 })
 
 app.post('/save_details',async function(req,res){
-  axios.post('http://192.168.0.101:8080/api',req.body).then((res) => {
+  
+  axios.post('http://localhost:8080/api',req.body).then((res) => {
     console.log(res)
   }, (err) => {
     console.log(err);
   });
-  res.sendFile(__dirname+'/status.html')
+  res.render('status')
+})
+
+app.get('/view_locations',async function(req,res){
+  let resp= await axios.get('http://localhost:8080/api');
+
+  res.render('view_locations',{locations:resp.data})
 })
 
