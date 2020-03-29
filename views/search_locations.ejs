@@ -17,16 +17,16 @@
   
   <div class="card">
     <h5 class="card-header">Locations</h5>
-    <% for(var i=0 ; i<locations.length; i++) {%> 
+    
     <div class="card-body">
-      <h5 class="card-title"><%=locations[i].name %></h5>
-      <p class="card-text">Crowd Status :<%=locations[i].crowd_status %></p>
-      <p class="card-text">No of People Voted :<%=(locations[i].count)+1 %></p>
-      <p class="card-text">Last Time Updated details :<%=locations[i].last_time_update_details %></p>
-      <a href="/update/<%=locations[i].name%>"class="btn btn-dark float-right" >Update</a>
+      <h5 class="card-title"><%=location.name %></h5>
+      <p class="card-text">Crowd Status :<%=location.crowd_status %></p>
+      <p class="card-text">No of People Voted :<%=(location.count)+1 %></p>
+      <p class="card-text">Last Time Updated details :<%=location.last_time_update_details %></p>
       
+      <a href="/update" class="btn btn-dark float-right" >Update</a>
     </div>
-    <% } %>
+    
   </div>
 </div> 
 </body>

@@ -12,23 +12,14 @@
         <h1>Let's Fight against Corona Virus</h1>      
         
     </div>
-<form action="/save_details" method="post">
+<form action="/find_details" method="POST">
    <div class="form-group">
     <label for="exampleFormControlInput1">Enter Area/City/Landmark Name</label>
     <input type="text" name="name"class="form-control" id="exampleFormControlInput1">
   </div>
 
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Enter Crowd Status</label>
-    <select class="form-control" id="exampleFormControlSelect1" name="crowd_status">
-      <option>Highly Crowded</option>
-      <option>Less Crowded</option>
-      <option>Moderate </option>
-      <option>Safe Area</option>
-    </select>
-  </div>
+  
 <button type="submit" class="btn btn-primary mb-2">Save</button>
 <a class="btn btn-primary mb-2" href="/view_locations">View Locations</a>
-<a class="btn btn-primary mb-2" href="/find">Find Locations</a>
 </form>
 </body>
