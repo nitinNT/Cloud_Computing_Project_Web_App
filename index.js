@@ -64,3 +64,16 @@ app.post('/update_details',function(req,res){
   });
   res.render('status')
 })
+
+app.get('/delete/:id',async function(req,res){
+  
+  var place=req.originalUrl.replace('/delete/','');
+  var stringURL ='http://localhost:8080/api/'.concat(place);
+  
+  let resp= await axios.delete(stringURL);
+
+
+  console.log(resp.data)
+
+  res.render('index',{message:resp.data})
+})

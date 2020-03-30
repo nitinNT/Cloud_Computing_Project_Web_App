@@ -21,10 +21,11 @@
     <div class="card-body">
       <h5 class="card-title"><%=location.name %></h5>
       <p class="card-text">Crowd Status :<%=location.crowd_status %></p>
-      <p class="card-text">No of People Voted :<%=(location.count)+1 %></p>
+      <p class="card-text">No of People Voted :<%=location.count %></p>
       <p class="card-text">Last Time Updated details :<%=location.last_time_update_details %></p>
       
-      <a href="/update" class="btn btn-dark float-right" >Update</a>
+      <a href="/update/<%=location.name%>" class="btn btn-dark float-left" >Update</a>
+      <a href="/delete/<%=locations[i].name%>"class="btn btn-danger float-right" >Delete</a>
     </div>
     
   </div>
