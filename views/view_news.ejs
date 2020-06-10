@@ -16,18 +16,17 @@
   
   
   <div class="card">
-    <h5 class="card-header">Locations</h5>
-    
-    <div class="card-body">
-      <h5 class="card-title"><%=location.name %></h5>
-      <p class="card-text">Crowd Status :<%=location.crowd_status %></p>
-      <p class="card-text">No of People Voted :<%=location.count %></p>
-      <p class="card-text">Last Time Updated details :<%=location.last_time_update_details %></p>
-      
-      <a href="/update/<%=location.name%>" class="btn btn-dark float-left" >Update</a>
-      <a href="/delete/<%=location.name%>"class="btn btn-danger float-right" >Delete</a>
-    </div>
-    
+    <h5 class="card-header">News</h5>
+    <% for(var i=0 ; i<locations.length; i++) {%> 
+        <div class="card">
+            <img class="card-img-top" src="<%=locations[i].urlToImage %>" alt="Card image cap" style="height: 100%; width: 20%;">
+            <div class="card-body">
+              <p class="card-text"><%=locations[i].description %></p>
+              <a href="<%=locations[i].url %>">View</a> 
+              <p class="card-text" style="position: fixed;"><%=locations[i].publishedAt %></p>
+            </div>
+          </div>
+    <% } %>
   </div>
 </div> 
 </body>

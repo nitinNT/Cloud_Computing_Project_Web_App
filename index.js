@@ -1,8 +1,5 @@
 var express = require('express');
 var app = express();
-var mongooose=require('mongoose');
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
 const axios=require('axios')
 
 
@@ -36,6 +33,13 @@ app.get('/view_locations',async function(req,res){
 
   res.render('view_locations',{locations:resp.data})
 })
+
+app.get('/view_news',async function(req,res){
+  let resp= await axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=167dde1203594ca598913c5f8114a8e9');
+  console.log(resp.data.articles)
+  res.render('view_news',{locations:resp.data.articles})
+})
+
 
 app.get('/find',function(req,res){
   res.render('search')
